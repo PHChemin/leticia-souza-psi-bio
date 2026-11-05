@@ -1,45 +1,46 @@
-# Product Requirements Document (template)
+# Product Requirements Document
 
-Preencha um PRD por cliente/freelance. Este arquivo orienta a IA e você
-sobre *o que* construir — não *como* (veja `SDD.md` e `UI_GUIDANCE.md`).
+Bio de presença da Letícia Souza. A one-page não faz parte deste repositório.
 
 ## Identidade
 
 | Campo | Valor |
 | --- | --- |
-| Nome do cliente / marca | |
-| Área de atuação | |
-| Público-alvo | |
-| Tom de voz | (ex.: acolhedor, técnico, premium, divertido) |
+| Nome do cliente / marca | Letícia Souza (Letícia Aparecida Souza Tomaz) |
+| CRP | 06/229667, no rodapé |
+| Área de atuação | Psicologia clínica, atendimento online |
+| Público-alvo | Adolescentes, adultos e idosos |
+| Tom de voz | Acolhedor, marcante, nítido |
 | Idioma do site | pt-BR |
 
 ## Objetivo da landing
 
-Uma frase: o visitante deve sair entendendo X e fazendo Y (ex.: clicar no WhatsApp).
+A pessoa entende que Letícia atende online esses três públicos e sai por WhatsApp, Instagram ou Lattes.
 
 ## Conteúdo obrigatório
 
-- [ ] Nome / marca em destaque (hero)
-- [ ] Headline + frase de apoio
-- [ ] Contato (WhatsApp / e-mail / redes)
-- [ ] (Opcional) Serviços / sobre — se for one-page com scroll
+- [x] Nome / marca em destaque (hero)
+- [x] Headline + frase de apoio
+- [x] Contato (WhatsApp / Instagram / Lattes)
+- [ ] Serviços / sobre — ficam na one-page, outro projeto
 
 ## Contatos a linkar
 
 | Canal | URL / número |
 | --- | --- |
-| WhatsApp | |
-| E-mail | |
-| Instagram | |
-| Outro | |
+| WhatsApp | https://wa.me/5534992165000 |
+| E-mail | não informado |
+| Instagram | https://www.instagram.com/leticia.souzapsi |
+| Outro | Currículo Lattes https://lattes.cnpq.br/1069249404080267 |
+| Artigo | ainda sem URL — não publicar link morto |
 
 ## Domínio
 
 | Campo | Valor |
 | --- | --- |
-| URL desejada | (ex.: www.cliente.com.br ou linktree.seudominio.com.br) |
-| Quem compra / renova o domínio | Cliente / Freelancer |
-| Já possui domínio? | Sim / Não |
+| URL desejada | `links.psicologaleticiasouza.com.br` (site principal dela: `psicologaleticiasouza.com.br`) |
+| Quem compra / renova o domínio | a definir |
+| Já possui domínio? | Não |
 
 ## Fora de escopo (padrão)
 
@@ -48,6 +49,8 @@ Uma frase: o visitante deve sair entendendo X e fazendo Y (ex.: clicar no WhatsA
 - CMS / painel admin
 - Formulário com backend (Pages é estático)
 - Mensalidade de hospedagem (usa GitHub Pages)
+- One-page institucional (outro projeto)
+- Artigo até a URL existir
 
 ## Critérios de aceite
 
@@ -59,5 +62,6 @@ Uma frase: o visitante deve sair entendendo X e fazendo Y (ex.: clicar no WhatsA
 
 ## Referências
 
-- Sites / fotos / cores que o cliente gostou:
-- Conteúdo bruto (bio, lista de serviços):
+- Identidade visual em `public/` (paleta, logos, Lora e Poppins, símbolo).
+- Instagram da Maitê Sartori: clareza e cores que conversam.
+- Luz e jardim do Shopping Galleria, Campinas.

@@ -16,3 +16,6 @@ dist/
 !.vscode/extensions.json
 .idea/
 .originkit/
+
+# Identidade visual da cliente (material de trabalho, só local)
+identidade/

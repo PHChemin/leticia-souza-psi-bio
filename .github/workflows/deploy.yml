@@ -32,10 +32,8 @@ jobs:
 
       - name: Build
         run: npm run build
-        # For project pages without custom domain (user.github.io/repo),
-        # uncomment and set the repo name:
-        # env:
-        #   VITE_BASE_PATH: /react-landpage-template/
+        # Domínio próprio (links.psicologaleticiasouza.com.br, ver public/CNAME):
+        # o site fica na raiz e o base './' do vite.config.ts basta.
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

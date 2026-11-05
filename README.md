@@ -1,50 +1,56 @@
-# React Landpage Template
+# Letícia Souza · Bio
 
-Esqueleto para landings freelance com **Vite + React + TypeScript + Tailwind CSS v4**, motion (Magic UI / Originkit) e deploy gratuito no **GitHub Pages**.
+Bio de presença da psicóloga clínica **Letícia Souza**: símbolo, nome, uma frase e três links (WhatsApp, Instagram e Currículo Lattes).
 
-Irmão HTML-only: [github-landpage-template](https://github.com/PHChemin/github-landpage-template).
+- **Endereço:** <https://links.psicologaleticiasouza.com.br> (o site principal dela, `psicologaleticiasouza.com.br`, é outro projeto)
+- **Stack:** Vite + React 19 + TypeScript + Tailwind CSS v4, publicado no GitHub Pages
+- **Identidade:** lavanda, oliva, terracota, baunilha e ameixa; Lora e Poppins (fontes locais via `@fontsource`, sem Google Fonts)
+- Projeto criado a partir do template `react-landpage-template`; o banco de componentes do template continua em `src/components/`, mas a página usa só `src/components/site/`.
 
-## Stack
-
-| Camada | Escolha |
-| --- | --- |
-| UI | React 19 + TypeScript |
-| Estilo | Tailwind v4 (`@tailwindcss/vite`) + tokens shadcn |
-| Motion bank | Magic UI (via shadcn) + Originkit (pré-baixado) + handmade |
-| Build | Vite → `dist/` estático |
-| Deploy | GitHub Actions → GitHub Pages |
-
-```
-código (React, Tailwind, deps)
-        │
-        ▼  vite build
-     dist/  (HTML/CSS/JS prontos)
-        │
-        ▼  Actions
-  GitHub Pages (site no ar)
-```
-
-## Começar
+## Rodar
 
 ```bash
 npm install
-npm run dev
+npm run dev       # desenvolvimento (http://localhost:5173)
+npm run build     # gera dist/
+npm run preview   # testa o build localmente
 ```
 
-Abra o endereço do terminal (geralmente `http://localhost:5173`).
+## Onde mexer
 
-### Checklist de personalização
+| O quê | Onde |
+| --- | --- |
+| Textos e estrutura | `src/App.tsx` |
+| Links de contato (WhatsApp, Instagram, Lattes) | `src/lib/links.ts` |
+| Cores, fontes e animações | `src/styles/main.css` |
+| Título, descrição e preview de compartilhamento | `index.html` |
+| Imagem de preview (1200×630) | `public/og-image.png` |
+| Símbolo e peças da animação | `public/logo-mark.png`, `public/grow/` |
+| Direção de arte e feedback da cliente | `docs/ART_DIRECTION.md` |
 
-1. Preencha `docs/CLIENT_BRIEF.md` e `docs/PRD.md`.
-2. Ajuste tokens/cores em `src/styles/main.css`.
-3. Troque textos, links e CTAs em `src/App.tsx` (e `index.html` title/description).
-4. Coloque logo/fotos em `public/` se precisar.
-5. `npm run build` → `npm run preview`.
-6. Deploy: `docs/DEPLOY.md`.
+Caminhos de `public/` no código passam por `asset()` (`src/lib/asset.ts`), que respeita o `base` do Vite.
 
-Contato só via links (`wa.me`, `mailto:`, redes) — Pages é estático.
+Contato só via links (`wa.me`, `mailto:`, redes), porque o Pages é estático.
 
-## Banco de componentes
+## Deploy e domínio
+
+1. **Settings → Pages → Source → GitHub Actions**.
+2. Push na `main` roda `.github/workflows/deploy.yml` (`npm ci` → `npm run build` → publica `dist/`).
+3. O domínio fica em `public/CNAME` (`links.psicologaleticiasouza.com.br`), que o build copia para `dist/`.
+4. No DNS de `psicologaleticiasouza.com.br`, crie um registro **CNAME**: nome `links`, valor `phchemin.github.io`.
+5. Em **Settings → Pages → Custom domain**, confirme `links.psicologaleticiasouza.com.br` e marque **Enforce HTTPS** quando o certificado sair.
+
+Detalhes gerais em [`docs/DEPLOY.md`](docs/DEPLOY.md).
+
+## Material local (não vai para o git)
+
+`identidade/` guarda os arquivos de identidade visual enviados pela cliente (paleta, SVG da marca). Está no `.gitignore` e fica só na máquina. Também não versione `.env`, `.originkit/`, `node_modules/` e `dist/`.
+
+## Pendências
+
+- E-mail e link do artigo (hoje fora da página).
+
+## Banco de componentes (herdado do template)
 
 Código já versionado no repo (sem fetch no dia a dia do cliente):
 
@@ -81,26 +87,3 @@ Config: `components.json` (shadcn + registry `@magicui`) e `originkit.components
 | [docs/SDD.md](docs/SDD.md) | Decisão técnica / arquitetura |
 | [docs/UI_GUIDANCE.md](docs/UI_GUIDANCE.md) | Regras de design |
 | [docs/DEPLOY.md](docs/DEPLOY.md) | Pages, Actions e domínio custom |
-
-## Deploy
-
-1. Publique o repo no GitHub (ou use *Use this template*).
-2. **Settings → Pages → Source → GitHub Actions**.
-3. Push na `main` (workflow `.github/workflows/deploy.yml`).
-4. Se CSS/JS quebrarem em `user.github.io/repo/`, descomente `VITE_BASE_PATH` no workflow.
-5. Domínio: `docs/DEPLOY.md`.
-
-## Scripts
-
-```bash
-npm run dev       # desenvolvimento
-npm run build     # gera dist/
-npm run preview   # testa o build localmente
-```
-
-## Segurança / o que NÃO versionar
-
-- `.env` / secrets / API keys
-- `.originkit/` (credenciais/cache do CLI)
-- `node_modules/`, `dist/`
-- Dados reais do cliente (WhatsApp, e-mail) até o fork do projeto — este template usa **placeholders**
