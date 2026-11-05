@@ -33,16 +33,17 @@ export function WhatsAppCta({
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "cta-ring group relative inline-flex max-w-full items-center justify-center gap-2.5 rounded-md bg-primary font-semibold text-primary-foreground",
-        "focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50",
-        size === "lg" ? "min-h-11 px-6 py-3 text-base" : "min-h-11 px-4 text-sm",
+        "wave-btn wave-btn-primary group relative inline-flex max-w-full items-center justify-center gap-2.5 rounded-full font-medium",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ameixa focus-visible:ring-offset-2 focus-visible:ring-offset-neve",
+        size === "lg" ? "min-h-14 px-7 py-3 text-base" : "min-h-11 px-4 text-sm",
         className,
       )}
       {...props}
     >
       <span className="relative z-10 inline-flex min-w-0 items-center gap-2.5">
-        {icon ?? <WhatsAppIcon className="size-4 shrink-0" />}
-        <span className="truncate">{label}</span>
+        {icon ?? <WhatsAppIcon className="size-[1.05rem] shrink-0" />}
+        <span className="truncate tracking-wide">{label}</span>
+        <span className="sr-only"> (abre em nova aba)</span>
       </span>
     </a>
   )
