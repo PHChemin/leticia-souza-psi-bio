@@ -5,16 +5,25 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
-  --font-display: "Syne", system-ui, sans-serif;
-  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-mono: "Poppins", system-ui, sans-serif;
+  --font-display: "Lora", Georgia, "Times New Roman", serif;
+  --font-sans: "Poppins", system-ui, sans-serif;
 
-  --color-ink: #12141a;
-  --color-ink-muted: #6b7280;
-  --color-paper: #f4f5f7;
-  --color-brand: #0f6b5c;
-  --color-brand-hover: #0c5649;
-  --color-surface: #ffffff;
+  /* Paleta aprovada pela cliente (arquivos em identidade/, só local) */
+  --color-lavanda: #bda7d5;
+  --color-oliva: #798467;
+  --color-terracota: #c58e7c;
+  --color-baunilha: #f4e8d8;
+  --color-ameixa: #59444c;
+
+  /* Fundo da página: branco puro (#FFFFFF) */
+  --color-neve: #ffffff;
+
+  /* Derivados para texto/fundo com contraste AA sobre o fundo claro */
+  --color-oliva-funda: #5f6b4f;
+  --color-oliva-noite: #4c5640;
+  --color-blush: #f0d6c9;
+
 }
 
 @theme inline {
@@ -110,37 +119,43 @@
   }
 }
 
-/* Demo dark theme — replace tokens per client in docs/UI_GUIDANCE.md */
+/* Luz de jardim — fundo branco com texto ameixa. */
 :root {
-  --background: #12141a;
-  --foreground: #f4f5f7;
-  --card: #1a1d26;
-  --card-foreground: #f4f5f7;
-  --popover: #1a1d26;
-  --popover-foreground: #f4f5f7;
-  --primary: #0f6b5c;
+  --background: #ffffff;
+  --foreground: #59444c;
+  --card: #ffffff;
+  --card-foreground: #59444c;
+  --popover: #ffffff;
+  --popover-foreground: #59444c;
+  --primary: #59444c;
   --primary-foreground: #ffffff;
-  --secondary: #24302c;
-  --secondary-foreground: #f4f5f7;
-  --muted: #22262f;
-  --muted-foreground: #9ca3af;
-  --accent: #24302c;
-  --accent-foreground: #f4f5f7;
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: rgb(244 245 247 / 14%);
-  --input: rgb(244 245 247 / 12%);
-  --ring: #0f6b5c;
-  --chart-1: #0f6b5c;
-  --chart-2: #24302c;
-  --chart-3: #9ca3af;
-  --chart-4: #f4f5f7;
-  --chart-5: #ffffff;
-  --radius: 0.625rem;
+  --secondary: #f8efe9;
+  --secondary-foreground: #59444c;
+  --muted: #f8efe9;
+  --muted-foreground: #59444c;
+  --accent: #f8efe9;
+  --accent-foreground: #59444c;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: rgb(89 68 76 / 22%);
+  --input: rgb(89 68 76 / 18%);
+  --ring: #59444c;
+  --chart-1: #59444c;
+  --chart-2: #798467;
+  --chart-3: #c58e7c;
+  --chart-4: #bda7d5;
+  --chart-5: #f4e8d8;
+  --radius: 0.75rem;
+  color-scheme: light;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+  }
+
+  html,
+  body {
+    overflow-x: clip;
   }
 
   body {
@@ -182,6 +197,261 @@
 
 .cta-ring {
   animation: cta-ring 2.4s ease-out infinite;
+}
+
+/* Luz que entra no jardim: fundo branco com luz de cor do símbolo nas bordas (lavanda no alto, oliva e terracota suaves). */
+.garden-light {
+  background-color: var(--color-neve);
+  background-image:
+    radial-gradient(ellipse 34rem 26rem at 96% 0%, rgb(189 167 213 / 0.24), transparent 70%),
+    radial-gradient(ellipse 30rem 30rem at 0% 55%, rgb(121 132 103 / 0.08), transparent 70%),
+    radial-gradient(ellipse 30rem 24rem at 100% 78%, rgb(197 142 124 / 0.14), transparent 70%);
+}
+
+/* Símbolo de fundo crescendo da raiz: chão abre, caule sobe, folhas abrem, a luz chega. */
+.grow-mark {
+  position: absolute;
+  opacity: 0.17;
+}
+
+.grow-mark img {
+  max-width: none;
+}
+
+.grow-ground {
+  animation: grow-ground 1.8s cubic-bezier(0.4, 0, 0.2, 1) 0.6s both;
+}
+
+@keyframes grow-ground {
+  from {
+    clip-path: inset(0 50% 0 50%);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.grow-stem {
+  animation: grow-stem 2.4s cubic-bezier(0.3, 0, 0.2, 1) 1.6s both;
+}
+
+@keyframes grow-stem {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.grow-leaf {
+  animation: grow-leaf 2.4s cubic-bezier(0.22, 0.8, 0.24, 1) 3.4s both;
+}
+
+.grow-leaf-left {
+  --fold: 55deg;
+}
+
+.grow-leaf-right {
+  --fold: -45deg;
+  animation-delay: 3.7s;
+}
+
+@keyframes grow-leaf {
+  from {
+    opacity: 0;
+    transform: rotate(var(--fold)) scale(0.15);
+  }
+  30% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.grow-light {
+  animation: grow-light 1.8s cubic-bezier(0.22, 0.8, 0.24, 1) 5.4s both;
+}
+
+@keyframes grow-light {
+  from {
+    opacity: 0;
+    transform: translateY(60%) scale(0.2);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.grow-sway {
+  transform-origin: 49.5% 91%;
+  animation: grow-sway 14s ease-in-out 7.2s infinite alternate;
+}
+
+@keyframes grow-sway {
+  from {
+    transform: rotate(-1.2deg);
+  }
+  to {
+    transform: rotate(1.2deg);
+  }
+}
+
+.mark-arrive {
+  animation: mark-arrive 1.4s cubic-bezier(0.22, 0.8, 0.24, 1) both;
+}
+
+@keyframes mark-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: rise 1s cubic-bezier(0.22, 0.8, 0.24, 1) both;
+  animation-delay: calc(var(--step, 0) * 90ms + 280ms);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Linhas de fundo: chegam devagar. Sem dasharray, que falha no Safari do iPhone. */
+.flow-line {
+  animation: fade-in 3s ease both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* A onda do chão do símbolo, em dois recortes: preenchida (botões) e em traço (divisores). */
+:root {
+  --wave-fill: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 16' preserveAspectRatio='none'%3E%3Cpath d='M0 8C16 0 32 0 48 8S80 16 96 8V16H0Z'/%3E%3C/svg%3E");
+  --wave-stroke: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 6' preserveAspectRatio='none'%3E%3Cpath d='M0 3C8 .5 16 .5 24 3S40 5.5 48 3' fill='none' stroke='%23000' stroke-width='1.4'/%3E%3C/svg%3E");
+}
+
+.wave-btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    color 0.5s ease,
+    border-color 0.5s ease,
+    transform 0.25s ease;
+}
+
+.wave-btn::before {
+  content: "";
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  bottom: 0;
+  z-index: -1;
+  height: calc(100% + 16px);
+  background: var(--wave-color);
+  mask:
+    var(--wave-fill) 0 0 / 96px 16px repeat-x,
+    linear-gradient(#000 0 0) 0 16px / 100% 100% no-repeat;
+  transform: translateY(100%);
+  transition: transform 0.9s cubic-bezier(0.22, 0.8, 0.24, 1);
+  animation: wave-drift 5s linear infinite;
+}
+
+.wave-btn:hover::before,
+.wave-btn:focus-visible::before,
+.wave-btn:active::before {
+  transform: translateY(0);
+}
+
+.wave-btn:active {
+  transform: scale(0.985);
+}
+
+@keyframes wave-drift {
+  to {
+    mask-position:
+      96px 0,
+      0 16px;
+  }
+}
+
+/* WhatsApp: oliva com uma onda de oliva noite no pé; no hover essa mesma onda sobe e preenche. */
+.wave-btn-primary {
+  --wave-color: var(--color-oliva-noite);
+  background-color: var(--color-oliva-funda);
+  color: var(--color-neve);
+  box-shadow: 0 12px 30px -16px rgb(76 86 64 / 0.7);
+}
+
+.wave-btn-primary::after {
+  content: "";
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  bottom: -2px;
+  height: 11px;
+  background: var(--color-oliva-noite);
+  mask: var(--wave-fill) 0 0 / 140px 11px repeat-x;
+  animation: ground-drift 14s linear infinite;
+  transition: transform 0.9s cubic-bezier(0.22, 0.8, 0.24, 1);
+}
+
+.wave-btn-primary:hover::after,
+.wave-btn-primary:focus-visible::after {
+  transform: translateY(-2px);
+}
+
+@keyframes ground-drift {
+  to {
+    mask-position: 140px 0;
+  }
+}
+
+/* Instagram e Lattes: no hover sobe a terracota clara, rosada. */
+.wave-btn-quiet {
+  --wave-color: var(--color-blush);
+  background-color: rgb(255 255 255 / 0.5);
+  backdrop-filter: blur(2px);
+}
+
+.wave-btn-quiet::before {
+  animation-duration: 6s;
+}
+
+.wave-btn-quiet:hover,
+.wave-btn-quiet:focus-visible,
+.wave-btn-quiet:active {
+  border-color: var(--color-terracota);
+}
+
+.wave-rule {
+  display: inline-block;
+  width: 2.25rem;
+  height: 6px;
+  background: var(--color-terracota);
+  mask: var(--wave-stroke) 0 0 / 36px 6px repeat-x;
+}
+
+.wave-rule-flip {
+  transform: scaleX(-1);
 }
 
 @media (prefers-reduced-motion: reduce) {
