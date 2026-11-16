@@ -6,7 +6,7 @@
 - Segmento: psicologia clínica. Atendimento online para adolescentes, adultos e idosos.
 - Cidade / região: não informada. Referência de luz: Shopping Galleria, Campinas.
 - 3 serviços ou produtos: nesta bio não entram serviços. A frase cobre o público.
-- WhatsApp (com DDI, só números): 5534992165000
+- WhatsApp (com DDI, só números): 5534997364975
 - E-mail: não informado
 - Instagram / outras redes: https://www.instagram.com/leticia.souzapsi · Currículo Lattes https://lattes.cnpq.br/1069249404080267 · Artigo ainda sem URL
 - Domínio desejado: `psicologaleticiasouza.com.br` para o site dela; esta bio fica em `links.psicologaleticiasouza.com.br`

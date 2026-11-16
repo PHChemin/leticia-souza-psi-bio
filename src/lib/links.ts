@@ -1,7 +1,7 @@
 /** Contatos da bio. Artigo ainda sem URL — não entra na página. */
 export const links = {
   whatsapp:
-    "https://wa.me/5534992165000?text=" +
+    "https://wa.me/5534997364975?text=" +
     encodeURIComponent(
       "Olá, Letícia. Vim pela sua página e gostaria de conversar sobre atendimento.",
     ),

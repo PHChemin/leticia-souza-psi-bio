@@ -28,7 +28,7 @@ A pessoa entende que Letícia atende online esses três públicos e sai por What
 
 | Canal | URL / número |
 | --- | --- |
-| WhatsApp | https://wa.me/5534992165000 |
+| WhatsApp | https://wa.me/5534997364975 |
 | E-mail | não informado |
 | Instagram | https://www.instagram.com/leticia.souzapsi |
 | Outro | Currículo Lattes https://lattes.cnpq.br/1069249404080267 |
