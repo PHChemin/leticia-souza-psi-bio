@@ -4,17 +4,21 @@ import { cn } from "@/lib/utils"
 
 type LinkButtonProps = Omit<ComponentProps<"a">, "children"> & {
   icon: ReactNode
+  tone?: "terracota" | "oliva"
   children: ReactNode
 }
 
 /** Botão secundário em pílula (borda terracota, onda blush no hover). Âncora real, abre em nova aba. */
-export function LinkButton({ icon, children, className, ...props }: LinkButtonProps) {
+export function LinkButton({ icon, children, tone = "terracota", className, ...props }: LinkButtonProps) {
   return (
     <a
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "wave-btn wave-btn-quiet inline-flex min-h-13 w-full items-center justify-center rounded-full border border-terracota/60 px-6 text-[0.95rem] font-medium tracking-wide text-ameixa",
+        "wave-btn wave-btn-quiet inline-flex min-h-13 w-full items-center justify-center rounded-full border px-6 text-[0.95rem] font-medium tracking-wide",
+        tone === "oliva"
+          ? "wave-btn-oliva border-oliva/70 text-oliva-noite"
+          : "border-terracota/60 text-ameixa",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ameixa focus-visible:ring-offset-2 focus-visible:ring-offset-neve",
         className,
       )}

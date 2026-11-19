@@ -2,7 +2,7 @@ import type { CSSProperties } from "react"
 
 import { FlowLines } from "@/components/site/flow-lines"
 import { GrowingMark } from "@/components/site/growing-mark"
-import { InstagramIcon, LattesIcon } from "@/components/site/link-icons"
+import { InstagramIcon, LattesIcon, SiteIcon, WhatsAppIcon } from "@/components/site/link-icons"
 import { LinkButton } from "@/components/site/link-button"
 import { WhatsAppCta } from "@/components/site/whatsapp-cta"
 import { asset } from "@/lib/asset"
@@ -73,15 +73,30 @@ export default function App() {
           </h2>
 
           <div className="rise" style={step(5)}>
-            <WhatsAppCta className="w-full" />
+            <WhatsAppCta
+              href={links.site}
+              label="Acesse meu Site!"
+              icon={<SiteIcon />}
+              tone="lavanda"
+              className="w-full"
+            />
           </div>
+          <LinkButton
+            href={links.whatsapp}
+            icon={<WhatsAppIcon />}
+            tone="oliva"
+            className="rise"
+            style={step(6)}
+          >
+            WhatsApp
+          </LinkButton>
           {otherLinks.map((link, i) => (
             <LinkButton
               key={link.href}
               href={link.href}
               icon={<link.Icon />}
               className="rise"
-              style={step(6 + i)}
+              style={step(7 + i)}
             >
               {link.label}
             </LinkButton>
@@ -91,7 +106,7 @@ export default function App() {
 
         <footer
           className="rise mt-8 text-xs leading-relaxed tracking-wide text-ameixa"
-          style={step(8)}
+          style={step(9)}
         >
           <p>Letícia Aparecida Souza Tomaz · CRP 06/229667 · {year}</p>
         </footer>

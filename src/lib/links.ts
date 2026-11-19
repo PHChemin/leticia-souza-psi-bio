@@ -1,5 +1,6 @@
 /** Contatos da bio. Artigo ainda sem URL — não entra na página. */
 export const links = {
+  site: "https://www.psicologaleticiasouza.com.br/",
   whatsapp:
     "https://wa.me/5534997364975?text=" +
     encodeURIComponent(

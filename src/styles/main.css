@@ -19,9 +19,13 @@
   /* Fundo da página: branco puro (#FFFFFF) */
   --color-neve: #ffffff;
 
-  /* Derivados para texto/fundo com contraste AA sobre o fundo claro */
+  /* Derivados para texto/fundo com contraste AA */
   --color-oliva-funda: #5f6b4f;
   --color-oliva-noite: #4c5640;
+  /* Lavanda da identidade clareada, para a onda do botão do site. */
+  --color-lavanda-clara: #d4c6e4;
+  /* O roxo forte do botão, um passo mais fundo: #734c9f fica em 3:1 sobre a lavanda clara. */
+  --color-lavanda-tinta: #503371;
   --color-blush: #f0d6c9;
 
 }
@@ -396,26 +400,39 @@
 /* WhatsApp: oliva com uma onda de oliva noite no pé; no hover essa mesma onda sobe e preenche. */
 .wave-btn-primary {
   --wave-color: var(--color-oliva-noite);
+  --ground-color: var(--color-oliva-noite);
   background-color: var(--color-oliva-funda);
   color: var(--color-neve);
   box-shadow: 0 12px 30px -16px rgb(76 86 64 / 0.7);
 }
 
-.wave-btn-primary::after {
+/* Site: lavanda clara da identidade, letra no roxo forte, onda ainda mais clara no hover. */
+.wave-btn-lavanda {
+  --wave-color: var(--color-lavanda-clara);
+  --ground-color: var(--color-lavanda-clara);
+  background-color: var(--color-lavanda);
+  color: var(--color-lavanda-tinta);
+  box-shadow: 0 12px 30px -16px rgb(189 167 213 / 0.95);
+}
+
+.wave-btn-primary::after,
+.wave-btn-lavanda::after {
   content: "";
   position: absolute;
   left: -10%;
   right: -10%;
   bottom: -2px;
   height: 11px;
-  background: var(--color-oliva-noite);
+  background: var(--ground-color);
   mask: var(--wave-fill) 0 0 / 140px 11px repeat-x;
   animation: ground-drift 14s linear infinite;
   transition: transform 0.9s cubic-bezier(0.22, 0.8, 0.24, 1);
 }
 
 .wave-btn-primary:hover::after,
-.wave-btn-primary:focus-visible::after {
+.wave-btn-primary:focus-visible::after,
+.wave-btn-lavanda:hover::after,
+.wave-btn-lavanda:focus-visible::after {
   transform: translateY(-2px);
 }
 
@@ -440,6 +457,17 @@
 .wave-btn-quiet:focus-visible,
 .wave-btn-quiet:active {
   border-color: var(--color-terracota);
+}
+
+/* WhatsApp: mesma pílula, com identidade verde (oliva). */
+.wave-btn-oliva {
+  --wave-color: #e4e9db;
+}
+
+.wave-btn-oliva:hover,
+.wave-btn-oliva:focus-visible,
+.wave-btn-oliva:active {
+  border-color: var(--color-oliva);
 }
 
 .wave-rule {
